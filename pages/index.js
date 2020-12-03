@@ -97,30 +97,30 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<div className="bg">
-				<div className="select-none absolute top-0 left-0 text-white font-medium text-lg m-7 mix-blend-difference">
+				<div className="select-none absolute top-0 left-0 text-white font-medium text-xl m-7 mix-blend-difference">
 					{properTime}
 				</div>
 
-				<div className="select-none absolute top-0 right-0 text-white font-medium text-lg m-7 mix-blend-difference">
+				<div className="select-none absolute top-0 right-0 text-white font-medium text-xl m-7 mix-blend-difference">
 					Next block at: {countdown}
 				</div>
 			</div>
 
 			<div className="flex flex-col items-center justify-center z-10 absolute w-full h-full">
 				<div className="bg-translucent p-12 rounded-2xl shadow-2xl text-center">
-					<div className="text-white font-medium text-5xl select-none">
+					<div className="text-white font-medium text-6xl select-none">
 						{block}
 					</div>
-					<div className="relative select-none text-7xl m-2 text-white font-bold">
+					<div className="relative select-none text-8xl m-2 text-white font-bold">
 						{time}
 					</div>
-					<div className="font-medium text-5xl text-white select-none">
+					<div className="font-medium text-6xl text-white select-none">
 						{date}
 					</div>
-					<div className="mt-12 font-medium text-white text-5xl select-none">
+					<div className="mt-12 font-medium text-white text-6xl select-none">
 						Time Until Next Block:
 					</div>
-					<div className="text-white font-medium text-5xl select-none">
+					<div className="text-white font-medium text-6xl select-none">
 						{formatCountdown()}
 					</div>
 				</div>
@@ -129,8 +129,8 @@ export default function Home() {
 			<div className="text-white absolute bottom-0 right-0 m-6 z-10">
 				<a href="https://github.com/punctuations/ac" target="_blank">
 					<svg
-						width="24"
-						height="24"
+						width="32"
+						height="32"
 						fill="currentColor"
 						className="opacity-50 hover:opacity-75 cursor-pointer"
 					>
