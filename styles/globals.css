@@ -16,7 +16,7 @@ a {
 }
 
 .mix-blend-difference {
-	mix-blend-mode: difference;
+	mix-blend-mode: exclusion;
 }
 
 .bg {
@@ -31,10 +31,6 @@ a {
 	background-size: cover;
 }
 
-.blur {
-	filter: blur(5px);
-}
-
 .bg-translucent {
-	background-color: rgb(223, 211, 209, 0.3);
+	background-color: rgb(13, 9, 10, 0.8);
 }

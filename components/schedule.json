@@ -16,6 +16,31 @@
                     "text": "Block: Two",
                     "start": "10:10",
                     "end": "11:10"
+                },
+                {
+                    "text": "Break",
+                    "start": "11:10",
+                    "end": "11:25"
+                },
+                {
+                    "text": "Block: Three",
+                    "start": "11:25",
+                    "end": "12:25"
+                },
+                {
+                    "text": "Lunch",
+                    "start": "12:25",
+                    "end": "12:55"
+                },
+                {
+                    "text": "Afternoon Block",
+                    "start": "12:55",
+                    "end": "2:25"
+                },
+                {
+                    "text": "End of the day",
+                    "start": "12:25",
+                    "end": "8:55"
                 }
             ]
         },
@@ -35,6 +60,31 @@
                     "text": "Block: Two",
                     "start": "10:10",
                     "end": "11:10"
+                },
+                {
+                    "text": "Break",
+                    "start": "11:10",
+                    "end": "11:25"
+                },
+                {
+                    "text": "Block: Three",
+                    "start": "11:25",
+                    "end": "12:25"
+                },
+                {
+                    "text": "Lunch",
+                    "start": "12:25",
+                    "end": "12:55"
+                },
+                {
+                    "text": "Afternoon Block",
+                    "start": "12:55",
+                    "end": "2:25"
+                },
+                {
+                    "text": "End of the day",
+                    "start": "2:25",
+                    "end": "8:55"
                 }
             ]
         }

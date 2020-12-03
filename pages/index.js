@@ -7,35 +7,6 @@ export default function Home() {
 	const [block, setBlock] = useState("loading...");
 	const [countdown, setCountdown] = useState("loading...");
 
-	function formatCountdown() {
-		const difference =
-			new Date(
-				`${
-					months[new Date().getMonth()]
-				} ${new Date().getDate()}, ${new Date().getFullYear()} ${countdown}`
-			).getTime() - new Date().getTime();
-		const hours = Math.floor(
-			(difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-		);
-		const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-		const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-		return `${hours}h ${minutes}m ${seconds}s`;
-	}
-
-	const data = res.schedule[Selection()].values;
-
-	for (const property in data) {
-		if (
-			res.schedule[Selection()].values[property].start <
-			new Date().toLocaleTimeString(["fr-FR"])
-		) {
-			useEffect(() => {
-				setBlock(res.schedule[Selection()].values[property].text);
-				setCountdown(res.schedule[Selection()].values[property].end);
-			}, []);
-		}
-	}
-
 	const days = [
 		"Sunday",
 		"Monday",
@@ -60,6 +31,45 @@ export default function Home() {
 		"December",
 	];
 
+	function formatCountdown() {
+		let difference =
+			new Date(
+				`${
+					months[new Date().getMonth()]
+				} ${new Date().getDate()}, ${new Date().getFullYear()} ${countdown}`
+			).getTime() - new Date().getTime();
+
+		if (difference < 0) {
+			difference =
+				new Date(
+					`${months[new Date().getMonth()]} ${
+						new Date().getDate() + 1
+					}, ${new Date().getFullYear()} ${countdown}`
+				).getTime() - new Date().getTime();
+		}
+
+		const hours = Math.floor(
+			(difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+		);
+		const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+		const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+		return `${hours}h ${minutes}m ${seconds}s`;
+	}
+
+	const data = res.schedule[Selection()].values;
+
+	for (const property in data) {
+		if (
+			res.schedule[Selection()].values[property].start <
+			new Date().toLocaleTimeString(["fr-FR"])
+		) {
+			useEffect(() => {
+				setBlock(res.schedule[Selection()].values[property].text);
+				setCountdown(res.schedule[Selection()].values[property].end);
+			});
+		}
+	}
+
 	const [time, setTime] = useState(new Date().toLocaleTimeString(["fr-FR"]));
 	const [properTime, setProperTime] = useState(
 		new Date().toLocaleTimeString(["en-US"])
@@ -82,6 +92,10 @@ export default function Home() {
 
 	return (
 		<>
+			<Head>
+				<title>Clock</title>
+				<link rel="icon" href="/favicon.ico" />
+			</Head>
 			<div className="bg">
 				<div className="select-none absolute top-0 left-0 text-white font-medium text-lg m-7 mix-blend-difference">
 					{properTime}
@@ -104,7 +118,7 @@ export default function Home() {
 						{date}
 					</div>
 					<div className="mt-12 font-medium text-white text-5xl select-none">
-						Time Until Block End:
+						Time Until Next Block:
 					</div>
 					<div className="text-white font-medium text-5xl select-none">
 						{formatCountdown()}
