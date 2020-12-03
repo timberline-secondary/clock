@@ -97,12 +97,12 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<div className="bg">
-				<div className="select-none absolute top-0 left-0 text-white font-medium text-xl m-7 mix-blend-difference">
-					{properTime}
+				<div className="select-none absolute top-0 left-0 text-white font-medium text-xl m-7">
+					<span className="text-shadow">{properTime}</span>
 				</div>
 
-				<div className="select-none absolute top-0 right-0 text-white font-medium text-xl m-7 mix-blend-difference">
-					Next block at: {countdown}
+				<div className="select-none absolute top-0 right-0 text-white font-medium text-xl m-7">
+					<span className="text-shadow">Next block at: {countdown}</span>
 				</div>
 			</div>
 

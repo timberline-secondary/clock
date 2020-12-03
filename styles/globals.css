@@ -15,8 +15,8 @@ a {
 	box-sizing: border-box;
 }
 
-.mix-blend-difference {
-	mix-blend-mode: exclusion;
+.text-shadow {
+	text-shadow: 3px 2px 12px #000000;
 }
 
 .bg {
