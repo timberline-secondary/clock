@@ -1,0 +1,42 @@
+{
+    "schedule": [
+        {
+            "values": [
+                {
+                    "text": "Block: One",
+                    "start": "08:55",
+                    "end": "09:55"
+                },
+                {
+                    "text": "Break",
+                    "start": "09:55",
+                    "end": "10:10"
+                },
+                {
+                    "text": "Block: Two",
+                    "start": "10:10",
+                    "end": "11:10"
+                }
+            ]
+        },
+        {
+            "values": [
+                {
+                    "text": "Block: One",
+                    "start": "08:55",
+                    "end": "09:55"
+                },
+                {
+                    "text": "Break",
+                    "start": "09:55",
+                    "end": "10:10"
+                },
+                {
+                    "text": "Block: Two",
+                    "start": "10:10",
+                    "end": "11:10"
+                }
+            ]
+        }
+    ]
+}
