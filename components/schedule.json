@@ -3,7 +3,7 @@
         {
             "values": [
                 {
-                    "text": "Block: One",
+                    "text": "Block 1",
                     "start": "08:55",
                     "end": "09:55"
                 },
@@ -13,7 +13,7 @@
                     "end": "10:10"
                 },
                 {
-                    "text": "Block: Two",
+                    "text": "Block: 2",
                     "start": "10:10",
                     "end": "11:10"
                 },
@@ -23,22 +23,22 @@
                     "end": "11:25"
                 },
                 {
-                    "text": "Block: Three",
+                    "text": "Block 3",
                     "start": "11:25",
                     "end": "12:25"
                 },
                 {
-                    "text": "Lunch",
+                    "text": "Mid Day Break",
                     "start": "12:25",
                     "end": "12:55"
                 },
                 {
-                    "text": "Afternoon Block",
+                    "text": "Afternoon/Flex Block",
                     "start": "12:55",
                     "end": "2:25"
                 },
                 {
-                    "text": "End of the day",
+                    "text": "School is Over",
                     "start": "12:25",
                     "end": "8:55"
                 }
