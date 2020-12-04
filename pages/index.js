@@ -115,7 +115,6 @@ export default function Home(props) {
 
 	useEffect(() => {
 		const interval = setInterval(() => {
-			console.log("ran");
 			setCount(count + 1);
 			setJoke(data.joke);
 		}, 300000);
