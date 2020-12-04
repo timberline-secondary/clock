@@ -107,7 +107,11 @@ export default function Home(props) {
 	const [properTime, setProperTime] = useState(
 		new Date().toLocaleTimeString(["en-US"])
 	);
-	const [date, setDate] = useState(null);
+	const [date, setDate] = useState(
+		`${days[new Date().getDay()]}, ${
+			months[new Date().getMonth()]
+		} ${new Date().getDate()}, ${new Date().getFullYear()}`
+	);
 
 	useEffect(() => {
 		const interval = setInterval(() => {
@@ -135,34 +139,36 @@ export default function Home(props) {
 				<title>Clock</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<div className="bg">
-				<div className="select-none absolute top-0 left-0 text-white font-medium text-xl m-7">
-					<span className="text-shadow">{properTime}</span>
-				</div>
+			<div className="bg"> </div>
+			<div className="select-none absolute top-0 left-0 text-white font-medium text-xl m-7">
+				<span className="text-shadow">{properTime}</span>
+			</div>
 
-				<div className="select-none absolute top-0 right-0 text-white font-medium text-xl m-7">
-					<span className="text-shadow">Next block at: {countdown}</span>
-				</div>
+			<div className="select-none absolute top-0 right-0 text-white font-medium text-xl m-7">
+				<span className="text-shadow">Next block at: {countdown}</span>
 			</div>
 
 			<div className="flex flex-col items-center justify-center z-10 absolute w-full h-full">
-				<div className="select-none text-white font-medium text-xl mb-16">
-					<span className="text-shadow">{joke}</span>
+				<div
+					id="joke"
+					className="select-none text-white font-medium text-4xl mb-16"
+				>
+					<span className="text-shadow">{joke >= 109 ? data.joke : joke}</span>
 				</div>
 				<div className="bg-translucent p-12 rounded-2xl shadow-2xl text-center">
-					<div className="text-white font-medium text-6xl select-none">
+					<div className="text-white font-medium text-7xl select-none">
 						{block}
 					</div>
-					<div className="relative select-none text-8xl m-2 text-white font-bold">
+					<div className="relative select-none text-9xl m-2 text-white font-bold">
 						{time}
 					</div>
-					<div className="font-medium text-6xl text-white select-none">
+					<div className="font-medium text-7xl text-white select-none">
 						{date}
 					</div>
-					<div className="mt-12 font-medium text-white text-6xl select-none">
+					<div className="mt-12 font-medium text-white text-7xl select-none">
 						Time Until Next Block:
 					</div>
-					<div className="text-white font-medium text-6xl select-none">
+					<div className="text-white font-medium text-7xl select-none">
 						{formatCountdown()}
 					</div>
 				</div>

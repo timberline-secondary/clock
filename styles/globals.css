@@ -16,11 +16,13 @@ a {
 }
 
 .text-shadow {
-	text-shadow: 3px 2px 12px #000000;
+	text-shadow: 3px 2px 8px #000000;
 }
 
 .bg {
-	background-image: url(https://picsum.photos/1920/1080?blur);
+	background-image: url(https://source.unsplash.com/1920x1080/?technology,games);
+
+	filter: blur(5px);
 
 	height: 100%;
 	width: 100%;
