@@ -13,7 +13,7 @@
                     "end": "10:10"
                 },
                 {
-                    "text": "Block: 2",
+                    "text": "Block 2",
                     "start": "10:10",
                     "end": "11:10"
                 },
@@ -35,12 +35,12 @@
                 {
                     "text": "Afternoon/Flex Block",
                     "start": "12:55",
-                    "end": "2:25"
+                    "end": "14:25"
                 },
                 {
                     "text": "School is Over",
                     "start": "12:25",
-                    "end": "8:55"
+                    "end": "08:55"
                 }
             ]
         },
@@ -79,12 +79,12 @@
                 {
                     "text": "Afternoon Block",
                     "start": "12:55",
-                    "end": "2:25"
+                    "end": "02:25"
                 },
                 {
                     "text": "End of the day",
-                    "start": "2:25",
-                    "end": "8:55"
+                    "start": "14:25",
+                    "end": "08:55"
                 }
             ]
         }
