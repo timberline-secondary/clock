@@ -1,9 +1,42 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
+import useSWR from "swr";
 import Selection from "../components/schedule.js";
 import res from "../components/schedule.json";
 
-export default function Home() {
+export async function getStaticProps() {
+	const fetcher = (url) =>
+		fetch(url, {
+			headers: {
+				Accept: "application/json",
+			},
+		}).then((r) => r.json());
+
+	const res = await fetcher(`https://icanhazdadjoke.com/`);
+	return {
+		props: {
+			res,
+		},
+	};
+}
+
+export default function Home(props) {
+	const fetcher = (url) =>
+		fetch(url, {
+			headers: {
+				Accept: "application/json",
+			},
+		}).then((r) => r.json());
+
+	const { data } = useSWR("https://icanhazdadjoke.com/", fetcher, {
+		initialData: props.res,
+		refreshInterval: 1000,
+	});
+
+	const [joke, setJoke] = useState(data.joke);
+
+	const [count, setCount] = useState(0);
+
 	const [block, setBlock] = useState("loading...");
 	const [countdown, setCountdown] = useState("loading...");
 
@@ -56,9 +89,9 @@ export default function Home() {
 		return `${hours}h ${minutes}m ${seconds}s`;
 	}
 
-	const data = res.schedule[Selection()].values;
+	const response = res.schedule[Selection()].values;
 
-	for (const property in data) {
+	for (const property in response) {
 		if (
 			res.schedule[Selection()].values[property].start <
 			new Date().toLocaleTimeString(["fr-FR"])
@@ -79,6 +112,17 @@ export default function Home() {
 			months[new Date().getMonth()]
 		} ${new Date().getDate()}, ${new Date().getFullYear()}`
 	);
+
+	useEffect(() => {
+		const interval = setInterval(() => {
+			console.log("ran");
+			setCount(count + 1);
+			setJoke(data.joke);
+		}, 300000);
+		return () => {
+			clearInterval(interval);
+		};
+	}, [count]);
 
 	setInterval(() => {
 		setTime(new Date().toLocaleTimeString(["fr-FR"]));
@@ -107,6 +151,9 @@ export default function Home() {
 			</div>
 
 			<div className="flex flex-col items-center justify-center z-10 absolute w-full h-full">
+				<div className="select-none text-white font-medium text-xl mb-16">
+					<span className="text-shadow">{joke}</span>
+				</div>
 				<div className="bg-translucent p-12 rounded-2xl shadow-2xl text-center">
 					<div className="text-white font-medium text-6xl select-none">
 						{block}
