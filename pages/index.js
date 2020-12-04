@@ -107,11 +107,7 @@ export default function Home(props) {
 	const [properTime, setProperTime] = useState(
 		new Date().toLocaleTimeString(["en-US"])
 	);
-	const [date, setDate] = useState(
-		`${days[new Date().getDay()]}, ${
-			months[new Date().getMonth()]
-		} ${new Date().getDate()}, ${new Date().getFullYear()}`
-	);
+	const [date, setDate] = useState(null);
 
 	useEffect(() => {
 		const interval = setInterval(() => {
