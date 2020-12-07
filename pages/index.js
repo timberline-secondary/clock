@@ -36,6 +36,7 @@ export default function Home(props) {
 	const [joke, setJoke] = useState(data.joke);
 
 	const [count, setCount] = useState(0);
+	const [dateCount, setDateCount] = useState(0);
 
 	const [block, setBlock] = useState("loading...");
 	const [countdown, setCountdown] = useState("loading...");
@@ -123,20 +124,26 @@ export default function Home(props) {
 		};
 	}, [count]);
 
-	setInterval(() => {
-		setTime(new Date().toLocaleTimeString(["fr-FR"]));
-		setProperTime(new Date().toLocaleTimeString(["en-US"]));
-		setDate(
-			`${days[new Date().getDay()]}, ${
-				months[new Date().getMonth()]
-			} ${new Date().getDate()}, ${new Date().getFullYear()}`
-		);
-	}, 1000);
+	useEffect(() => {
+		const dateInterval = setInterval(() => {
+			setDateCount(dateCount + 1);
+			setTime(new Date().toLocaleTimeString(["fr-FR"]));
+			setProperTime(new Date().toLocaleTimeString(["en-US"]));
+			setDate(
+				`${days[new Date().getDay()]}, ${
+					months[new Date().getMonth()]
+				} ${new Date().getDate()}, ${new Date().getFullYear()}`
+			);
+		}, 1000);
+		return () => {
+			clearInterval(dateInterval);
+		};
+	}, [dateCount]);
 
 	function getJoke() {
 		switch (joke.length >= 109) {
 			case true:
-				return <span className="text-shadow text-2xl">{joke}</span>;
+				return <span className="text-shadow text-3xl">{joke}</span>;
 			case false:
 				return <span className="text-shadow text-4xl">{joke}</span>;
 		}
@@ -158,23 +165,19 @@ export default function Home(props) {
 			</div>
 
 			<div className="flex flex-col items-center justify-center z-10 absolute w-full h-full">
-				<div id="joke" className="select-none text-white font-medium mb-16">
-					{getJoke()}
-				</div>
-				<div className="bg-translucent p-12 rounded-2xl shadow-2xl text-center">
-					<div className="text-white font-medium text-7xl select-none">
+				<div className="select-none text-white mb-16 mx-16">{getJoke()}</div>
+				<div className="bg-translucent py-12 rounded-2xl shadow-2xl text-center">
+					<div className="text-white font-medium text-8xl select-none">
 						{block}
 					</div>
-					<div className="relative select-none text-9xl m-2 text-white font-bold">
+					<div className="relative select-none text-12xl tracking-wider m-2 text-white font-bold">
 						{time}
 					</div>
-					<div className="font-medium text-7xl text-white select-none">
-						{date}
-					</div>
-					<div className="mt-12 font-medium text-white text-7xl select-none">
+					<div className="text-8xl text-white select-none">{date}</div>
+					<div className="mt-12 font-normal text-white text-7xl select-none">
 						Time Until Next Block:
 					</div>
-					<div className="text-white font-medium text-7xl select-none">
+					<div className="text-white font-normal text-8xl select-none">
 						{formatCountdown()}
 					</div>
 				</div>

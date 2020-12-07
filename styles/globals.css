@@ -15,6 +15,11 @@ a {
 	box-sizing: border-box;
 }
 
+.text-12xl {
+	font-size: 14rem;
+	line-height: 1;
+}
+
 .text-shadow {
 	text-shadow: 3px 2px 8px #000000;
 }
@@ -34,5 +39,6 @@ a {
 }
 
 .bg-translucent {
+	width: 1364px;
 	background-color: rgb(13, 9, 10, 0.8);
 }
