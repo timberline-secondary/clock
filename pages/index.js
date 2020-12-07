@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import useSWR from "swr";
 import Selection from "../components/schedule.js";
 import res from "../components/schedule.json";
@@ -33,14 +33,6 @@ export default function Home(props) {
 		refreshInterval: 1000,
 	});
 
-	const [joke, setJoke] = useState(data.joke);
-
-	const [count, setCount] = useState(0);
-	const [dateCount, setDateCount] = useState(0);
-
-	const [block, setBlock] = useState("loading...");
-	const [countdown, setCountdown] = useState("loading...");
-
 	const days = [
 		"Sunday",
 		"Monday",
@@ -64,6 +56,19 @@ export default function Home(props) {
 		"November",
 		"December",
 	];
+
+	const [count, setCount] = useState(0);
+
+	const [joke, setJoke] = useState(data.joke);
+
+	const [block, setBlock] = useState("loading...");
+	const [countdown, setCountdown] = useState("loading...");
+
+	const [time, setTime] = useState(new Date().toLocaleTimeString(["fr-FR"]));
+	const [properTime, setProperTime] = useState(
+		new Date().toLocaleTimeString(["en-US"])
+	);
+	const [date, setDate] = useState("loading...");
 
 	function formatCountdown() {
 		let difference =
@@ -104,15 +109,13 @@ export default function Home(props) {
 		}
 	}
 
-	const [time, setTime] = useState(new Date().toLocaleTimeString(["fr-FR"]));
-	const [properTime, setProperTime] = useState(
-		new Date().toLocaleTimeString(["en-US"])
-	);
-	const [date, setDate] = useState(
-		`${days[new Date().getDay()]}, ${
-			months[new Date().getMonth()]
-		} ${new Date().getDate()}, ${new Date().getFullYear()}`
-	);
+	useEffect(() => {
+		setDate(
+			`${days[new Date().getDay()]}, ${
+				months[new Date().getMonth()]
+			} ${new Date().getDate()}, ${new Date().getFullYear()}`
+		);
+	}, []);
 
 	useEffect(() => {
 		const interval = setInterval(() => {
@@ -124,21 +127,15 @@ export default function Home(props) {
 		};
 	}, [count]);
 
-	useEffect(() => {
-		const dateInterval = setInterval(() => {
-			setDateCount(dateCount + 1);
-			setTime(new Date().toLocaleTimeString(["fr-FR"]));
-			setProperTime(new Date().toLocaleTimeString(["en-US"]));
-			setDate(
-				`${days[new Date().getDay()]}, ${
-					months[new Date().getMonth()]
-				} ${new Date().getDate()}, ${new Date().getFullYear()}`
-			);
-		}, 1000);
-		return () => {
-			clearInterval(dateInterval);
-		};
-	}, [dateCount]);
+	setInterval(() => {
+		setTime(new Date().toLocaleTimeString(["fr-FR"]));
+		setProperTime(new Date().toLocaleTimeString(["en-US"]));
+		setDate(
+			`${days[new Date().getDay()]}, ${
+				months[new Date().getMonth()]
+			} ${new Date().getDate()}, ${new Date().getFullYear()}`
+		);
+	}, 1000);
 
 	function getJoke() {
 		switch (joke.length >= 109) {
@@ -165,7 +162,9 @@ export default function Home(props) {
 			</div>
 
 			<div className="flex flex-col items-center justify-center z-10 absolute w-full h-full">
-				<div className="select-none text-white mb-16 mx-16">{getJoke()}</div>
+				<div className="select-none text-white mb-16 mt-3 mx-16">
+					{getJoke()}
+				</div>
 				<div className="bg-translucent py-12 rounded-2xl shadow-2xl text-center">
 					<div className="text-white font-medium text-8xl select-none">
 						{block}
