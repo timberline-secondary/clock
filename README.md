@@ -31,3 +31,21 @@ npm run dev
 # or
 yarn dev
 ```
+
+#### What to run on pi start
+
+```bash
+git pull
+```
+
+```bash
+npm i
+```
+
+```bash
+npm run dev
+```
+
+```bash
+chromium --app https://localhost:300 --start-fullscreen
+```
