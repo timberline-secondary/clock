@@ -165,7 +165,13 @@ export default function Home(props) {
 				<div className="select-none text-white mb-16 mt-3 mx-16">
 					{getJoke()}
 				</div>
-				<div className="bg-translucent py-12 rounded-2xl shadow-2xl text-center">
+				<div
+					className={
+						block.toLowerCase() == "break"
+							? "bg-break py-12 rounded-2xl shadow-2xl text-center"
+							: "bg-translucent py-12 rounded-2xl shadow-2xl text-center"
+					}
+				>
 					<div className="text-white font-medium text-8xl select-none">
 						{block}
 					</div>

@@ -38,6 +38,11 @@ a {
 	background-size: cover;
 }
 
+.bg-break {
+	width: 1364px;
+	background-color: rgb(239, 52, 24, 0.8);
+}
+
 .bg-translucent {
 	width: 1364px;
 	background-color: rgb(13, 9, 10, 0.8);
