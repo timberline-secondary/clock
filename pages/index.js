@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import useSWR from "swr";
 import Selection from "../components/schedule.js";
 import res from "../components/schedule.json";
@@ -97,17 +97,17 @@ export default function Home(props) {
 
 	const response = res.schedule[Selection()].values;
 
-	for (const property in response) {
-		if (
-			res.schedule[Selection()].values[property].start <
-			new Date().toLocaleTimeString(["fr-FR"])
-		) {
-			useEffect(() => {
+	useEffect(() => {
+		for (const property in response) {
+			if (
+				res.schedule[Selection()].values[property].start <
+				new Date().toLocaleTimeString(["fr-FR"])
+			) {
 				setBlock(res.schedule[Selection()].values[property].text);
 				setCountdown(res.schedule[Selection()].values[property].end);
-			});
+			}
 		}
-	}
+	});
 
 	useEffect(() => {
 		setDate(
