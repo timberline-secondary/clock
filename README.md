@@ -49,3 +49,9 @@ npm run dev
 ```bash
 chromium --app https://localhost:300 --start-fullscreen
 ```
+
+#### Possible fix to pi issue of memory on nextjs build:
+
+`webpack --watch --mode=development`
+
+taken from [here](https://github.com/vercel/next.js/issues/20445).
