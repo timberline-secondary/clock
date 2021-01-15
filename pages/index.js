@@ -140,9 +140,9 @@ export default function Home(props) {
 	function getJoke() {
 		switch (joke.length >= 109) {
 			case true:
-				return <span className="text-shadow text-3xl">{joke}</span>;
+				return <span className="text-shadow text-2xl">{joke}</span>;
 			case false:
-				return <span className="text-shadow text-4xl">{joke}</span>;
+				return <span className="text-shadow text-3xl">{joke}</span>;
 		}
 	}
 
@@ -152,43 +152,43 @@ export default function Home(props) {
 				<title>Clock</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<div className="bg"></div>
-			<div className="select-none absolute top-0 left-0 text-white font-medium text-xl m-7">
+				<div className="bg"></div>
+			<div className="select-none absolute bottom-0 left-0 text-white font-medium text-xl m-7">
 				<span className="text-shadow">{properTime}</span>
 			</div>
 
-			<div className="select-none absolute top-0 right-0 text-white font-medium text-xl m-7">
+			<div className="select-none absolute bottom-0 right-0 text-white font-medium text-xl m-7">
 				<span className="text-shadow">Next block at: {countdown}</span>
 			</div>
 
 			<div className="flex flex-col items-center justify-center z-10 absolute w-full h-full">
-				<div className="select-none text-white mb-16 mt-3 mx-16">
+				<div className="select-none text-white mb-2 mt-2 mx-16">
 					{getJoke()}
 				</div>
 				<div
 					className={
 						block.toLowerCase() == "break"
-							? "bg-break py-12 rounded-2xl shadow-2xl text-center"
-							: "bg-translucent py-12 rounded-2xl shadow-2xl text-center"
+							? "bg-break py-8 rounded-2xl shadow-2xl text-center w-8/12"
+							: "bg-translucent py-8 rounded-2xl shadow-2xl text-center w-8/12"
 					}
 				>
-					<div className="text-white font-medium text-8xl select-none">
+					<div className="text-white font-medium text-6xl select-none">
 						{block}
 					</div>
-					<div className="relative select-none text-12xl tracking-wider m-2 text-white font-bold">
+					<div className="relative select-none text-9xl tracking-wider my-2 text-white font-bold">
 						{time}
 					</div>
-					<div className="text-8xl text-white select-none">{date}</div>
-					<div className="mt-12 font-normal text-white text-7xl select-none">
+					<div className="text-6xl text-white select-none">{date}</div>
+					<div className="mt-12 font-normal text-white text-5xl select-none">
 						Time Until Next Block:
 					</div>
-					<div className="text-white font-normal text-8xl select-none">
+					<div className="text-white font-normal text-6xl select-none">
 						{formatCountdown()}
 					</div>
 				</div>
 			</div>
 
-			<div className="text-white absolute bottom-0 right-0 m-6 z-10">
+			<div className="text-white absolute top-0 right-0 m-6 z-10">
 				<a href="https://github.com/punctuations/ac" target="_blank">
 					<svg
 						width="32"
