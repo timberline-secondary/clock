@@ -48,41 +48,49 @@
             "values": [
                 {
                     "text": "Block: One",
+                    "colour": "default", 
                     "start": "08:55",
                     "end": "09:55"
                 },
                 {
                     "text": "Break",
+                    "colour": "default", 
                     "start": "09:55",
                     "end": "10:10"
                 },
                 {
                     "text": "Block: Two",
+                    "colour": "default", 
                     "start": "10:10",
                     "end": "11:10"
                 },
                 {
                     "text": "Break",
+                    "colour": "239, 52, 24", 
                     "start": "11:10",
                     "end": "11:25"
                 },
                 {
                     "text": "Block: Three",
+                    "colour": "default", 
                     "start": "11:25",
                     "end": "12:25"
                 },
                 {
                     "text": "Lunch",
+                    "colour": "239, 52, 24", 
                     "start": "12:25",
                     "end": "12:55"
                 },
                 {
                     "text": "Afternoon Block",
+                    "colour": "default", 
                     "start": "12:55",
                     "end": "14:25"
                 },
                 {
                     "text": "End of the day",
+                    "colour": "239, 52, 24", 
                     "start": "14:25",
                     "end": "08:55"
                 }

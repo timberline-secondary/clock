@@ -61,6 +61,8 @@ export default function Home(props) {
 
 	const [joke, setJoke] = useState(data.joke);
 
+	const [colour, setColour] = useState("");
+
 	const [block, setBlock] = useState("loading...");
 	const [countdown, setCountdown] = useState("loading...");
 
@@ -103,6 +105,7 @@ export default function Home(props) {
 				res.schedule[Selection()].values[property].start <
 				new Date().toLocaleTimeString(["fr-FR"])
 			) {
+				setColour(res.schedule[Selection()].values[property].colour);
 				setBlock(res.schedule[Selection()].values[property].text);
 				setCountdown(res.schedule[Selection()].values[property].end);
 			}
@@ -152,7 +155,7 @@ export default function Home(props) {
 				<title>Clock</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-				<div className="bg"></div>
+			<div className="bg"></div>
 			<div className="select-none absolute bottom-0 left-0 text-white font-medium text-xl m-7">
 				<span className="text-shadow">{properTime}</span>
 			</div>
@@ -166,11 +169,17 @@ export default function Home(props) {
 					{getJoke()}
 				</div>
 				<div
-					className={
-						block.toLowerCase() == "break"
-							? "bg-break py-8 rounded-2xl shadow-2xl text-center w-8/12"
-							: "bg-translucent py-8 rounded-2xl shadow-2xl text-center w-8/12"
-					}
+					className="py-8 rounded-2xl shadow-2xl text-center w-8/12"
+					style={{
+						backgroundColor: `rgba(${
+							colour == "default" ||
+							colour == null ||
+							colour == " " ||
+							colour == ""
+								? "13, 9, 10"
+								: colour
+						}, .75)`,
+					}}
 				>
 					<div className="text-white font-medium text-6xl select-none">
 						{block}
