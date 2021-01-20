@@ -13,9 +13,13 @@ export async function getStaticProps() {
 		}).then((r) => r.json());
 
 	const res = await fetcher(`https://icanhazdadjoke.com/`);
+	const bg = await fetcher(
+		`https://api.unsplash.com/search/photos?client_id=aouTCCUhWGIXjnWUT_wCHxCxucOemgzIMGBAzzR0rB4&page=1&query=technology,gaming`
+	);
 	return {
 		props: {
 			res,
+			bg,
 		},
 	};
 }
@@ -32,6 +36,14 @@ export default function Home(props) {
 		initialData: props.res,
 		refreshInterval: 1000,
 	});
+
+	const {
+		data: unsplash,
+	} = useSWR(
+		"https://api.unsplash.com/search/photos?client_id=aouTCCUhWGIXjnWUT_wCHxCxucOemgzIMGBAzzR0rB4&page=1&query=technology,gaming",
+		fetcher,
+		{ initialData: props.bg, refreshInterval: 1000 }
+	);
 
 	const days = [
 		"Sunday",
@@ -62,6 +74,15 @@ export default function Home(props) {
 	const [joke, setJoke] = useState(data.joke);
 
 	const [colour, setColour] = useState("");
+	const [bg, setBG] = useState(
+		<div
+			className="bg"
+			style={{
+				backgroundImage:
+					"url(https://source.unsplash.com/1920x1080/?technology,gaming)",
+			}}
+		></div>
+	);
 
 	const [block, setBlock] = useState("loading...");
 	const [countdown, setCountdown] = useState("loading...");
@@ -124,6 +145,18 @@ export default function Home(props) {
 		const interval = setInterval(() => {
 			setCount(count + 1);
 			setJoke(data.joke);
+			unsplash
+				? setBG(
+						<img
+							className="bg"
+							src={
+								unsplash.results[
+									Math.floor(Math.random() * unsplash.results.length)
+								].urls.regular
+							}
+						></img>
+				  )
+				: "";
 		}, 300000);
 		return () => {
 			clearInterval(interval);
@@ -155,7 +188,7 @@ export default function Home(props) {
 				<title>Clock</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<div className="bg"></div>
+			{bg}
 			<div className="select-none absolute bottom-0 left-0 text-white font-medium text-xl m-7">
 				<span className="text-shadow">{properTime}</span>
 			</div>

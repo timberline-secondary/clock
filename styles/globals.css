@@ -20,7 +20,7 @@ a {
 }
 
 .bg {
-	background-image: url(https://source.unsplash.com/1920x1080/?technology,games);
+	/* background-image: url(https://source.unsplash.com/1920x1080/?technology,gaming); */
 
 	filter: blur(5px);
 
