@@ -211,7 +211,7 @@ export default function Home(props) {
 							colour == ""
 								? "13, 9, 10"
 								: colour
-						}, .6)`,
+						}, .7)`,
 					}}
 				>
 					<div className="text-white font-medium text-6xl select-none">
