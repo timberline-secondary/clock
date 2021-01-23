@@ -176,9 +176,9 @@ export default function Home(props) {
 	function getJoke() {
 		switch (joke.length >= 109) {
 			case true:
-				return <span className="joke text-shadow text-2xl">{joke}</span>;
-			case false:
 				return <span className="joke text-shadow text-3xl">{joke}</span>;
+			case false:
+				return <span className="joke text-shadow text-4xl">{joke}</span>;
 		}
 	}
 
