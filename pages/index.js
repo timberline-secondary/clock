@@ -13,13 +13,9 @@ export async function getStaticProps() {
 		}).then((r) => r.json());
 
 	const res = await fetcher(`https://icanhazdadjoke.com/`);
-	const bg = await fetcher(
-		`https://api.unsplash.com/search/photos?client_id=aouTCCUhWGIXjnWUT_wCHxCxucOemgzIMGBAzzR0rB4&page=1&query=technology,gaming`
-	);
 	return {
 		props: {
 			res,
-			bg,
 		},
 	};
 }
@@ -37,13 +33,50 @@ export default function Home(props) {
 		refreshInterval: 1000,
 	});
 
-	const {
-		data: unsplash,
-	} = useSWR(
-		"https://api.unsplash.com/search/photos?client_id=aouTCCUhWGIXjnWUT_wCHxCxucOemgzIMGBAzzR0rB4&page=1&query=technology,gaming",
-		fetcher,
-		{ initialData: props.bg, refreshInterval: 1000 }
-	);
+	useEffect(() => {
+		var c = document.getElementById("canv");
+		var $ = c.getContext("2d");
+
+		var col = function (x, y, r, g, b) {
+			$.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+			$.fillRect(x, y, 1, 1);
+		};
+		var R = function (x, y, t) {
+			return Math.floor(192 + 64 * Math.cos((x * x - y * y) / 300 + t));
+		};
+
+		var G = function (x, y, t) {
+			return Math.floor(
+				192 +
+					64 *
+						Math.sin((x * x * Math.cos(t / 4) + y * y * Math.sin(t / 3)) / 300)
+			);
+		};
+
+		var B = function (x, y, t) {
+			return Math.floor(
+				192 +
+					64 *
+						Math.sin(
+							5 * Math.sin(t / 9) +
+								((x - 100) * (x - 100) + (y - 100) * (y - 100)) / 1100
+						)
+			);
+		};
+
+		var t = 0;
+
+		var run = function () {
+			for (let x = 0; x <= 35; x++) {
+				for (let y = 0; y <= 35; y++) {
+					col(x, y, R(x, y, t), G(x, y, t), B(x, y, t));
+				}
+			}
+			t = t + 0.05;
+			window.requestAnimationFrame(run);
+		};
+		run();
+	}, []);
 
 	const days = [
 		"Sunday",
@@ -74,15 +107,6 @@ export default function Home(props) {
 	const [joke, setJoke] = useState(data.joke);
 
 	const [colour, setColour] = useState("");
-	const [bg, setBG] = useState(
-		<div
-			className="bg"
-			style={{
-				backgroundImage:
-					"url(https://source.unsplash.com/1920x1080/?technology,gaming)",
-			}}
-		></div>
-	);
 
 	const [block, setBlock] = useState("loading...");
 	const [countdown, setCountdown] = useState("loading...");
@@ -145,18 +169,6 @@ export default function Home(props) {
 		const interval = setInterval(() => {
 			setCount(count + 1);
 			setJoke(data.joke);
-			unsplash
-				? setBG(
-						<img
-							className="bg"
-							src={
-								unsplash.results[
-									Math.floor(Math.random() * unsplash.results.length)
-								].urls.regular
-							}
-						></img>
-				  )
-				: "";
 		}, 300000);
 		return () => {
 			clearInterval(interval);
@@ -176,9 +188,9 @@ export default function Home(props) {
 	function getJoke() {
 		switch (joke.length >= 109) {
 			case true:
-				return <span className="joke text-shadow text-3xl">{joke}</span>;
+				return <span className="text-shadow text-3xl">{joke}</span>;
 			case false:
-				return <span className="joke text-shadow text-4xl">{joke}</span>;
+				return <span className="text-shadow text-4xl">{joke}</span>;
 		}
 	}
 
@@ -188,7 +200,12 @@ export default function Home(props) {
 				<title>Clock</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			{bg}
+			<canvas
+				id="canv"
+				className="w-full h-full absolute"
+				width="32"
+				height="32"
+			/>
 			<div className="select-none absolute bottom-0 left-0 text-white font-medium text-xl m-7">
 				<span className="text-shadow">{properTime}</span>
 			</div>
@@ -197,7 +214,7 @@ export default function Home(props) {
 				<span className="text-shadow">Next block at: {countdown}</span>
 			</div>
 
-			<div className="flex flex-col items-center justify-center z-10 absolute w-full h-full">
+			<div className="flex flex-col items-center justify-center absolute w-full h-full">
 				<div className="select-none text-white mb-2 mt-2 mx-16">
 					{getJoke()}
 				</div>
@@ -230,7 +247,7 @@ export default function Home(props) {
 				</div>
 			</div>
 
-			<div className="text-white absolute top-0 right-0 m-6 z-10">
+			<div className="text-white absolute top-0 right-0 m-6">
 				<a href="https://github.com/punctuations/ac" target="_blank">
 					<svg
 						width="32"

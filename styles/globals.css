@@ -16,11 +16,6 @@ a {
 	box-sizing: border-box;
 }
 
-.joke {
-	-webkit-text-stroke-color: #000;
-	-webkit-text-stroke-width: 0.03rem;
-}
-
 .text-shadow {
 	text-shadow: 3px 2px 8px #000;
 }
