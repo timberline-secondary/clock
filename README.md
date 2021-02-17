@@ -43,7 +43,7 @@ In the autostart file it reads:
 @lxpanel --profile LXDE-pi
 @pcmanfm --desktop --profile LXDE-pi
 #@xscreensaver -no-splash
-@/home/pi/clock/launcher2.sh
+@bash /home/pi/clock/launcher2.sh
 @xset s off
 @xset -dpms
 @xset s noblank
