@@ -34,20 +34,22 @@ export default function Home(props) {
 	});
 
 	useEffect(() => {
-		var c = document.getElementById("canv");
-		var $ = c.getContext("2d");
+		const baseline = 128;
 
-		var col = function (x, y, r, g, b) {
+		const c = document.getElementById("canv");
+		const $ = c.getContext("2d");
+
+		const col = (x, y, r, g, b) => {
 			$.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
 			$.fillRect(x, y, 1, 1);
 		};
-		var R = function (x, y, t) {
-			return Math.floor(192 + 64 * Math.cos((x * x - y * y) / 300 + t));
+		const R = function (x, y, t) {
+			return Math.floor(baseline + 64 * Math.cos((x * x - y * y) / 300 + t));
 		};
 
-		var G = function (x, y, t) {
+		const G = (x, y, t) => {
 			return Math.floor(
-				192 +
+				baseline +
 					64 *
 						Math.sin((x * x * Math.cos(t / 4) + y * y * Math.sin(t / 3)) / 300)
 			);
@@ -55,7 +57,7 @@ export default function Home(props) {
 
 		var B = function (x, y, t) {
 			return Math.floor(
-				192 +
+				baseline +
 					64 *
 						Math.sin(
 							5 * Math.sin(t / 9) +
