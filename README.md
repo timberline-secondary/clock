@@ -22,6 +22,8 @@ followed by:
 
 ```bash
 npm i
+#or
+yarn
 ```
 
 Finally to run the development server please run:
@@ -32,26 +34,21 @@ npm run dev
 yarn dev
 ```
 
-#### What to run on pi start
+#### pi
+
+The pi uses the autostart from `/home/pi/.config/lxsession/LXDE-pi/autostart`.
+In the autostart file it reads:
 
 ```bash
-git pull
+@lxpanel --profile LXDE-pi
+@pcmanfm --desktop --profile LXDE-pi
+#@xscreensaver -no-splash
+@/home/pi/clock/launcher2.sh
+@xset s off
+@xset -dpms
+@xset s noblank
+#@chromium-browser --incognito --kiosk www.clocktab.com
+@unclutter -idle 0
 ```
 
-```bash
-npm i
-```
-
-```bash
-npm run dev
-```
-
-```bash
-chromium --app https://localhost:300 --start-fullscreen
-```
-
-#### Possible fix to pi issue of memory on nextjs build:
-
-`webpack --watch --mode=development`
-
-taken from [here](https://github.com/vercel/next.js/issues/20445).
+The launcher is located here in launcher2.sh and launches the clock onto the projector.
