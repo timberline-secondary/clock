@@ -95,6 +95,58 @@
                     "end": "08:55"
                 }
             ]
+        },
+        {
+            "values": [
+                {
+                    "text": "A Block",
+                    "colour": "default",
+                    "start": "08:55",
+                    "end": "10:20"
+                },
+                {
+                    "text": "Break",
+                    "colour": "default",
+                    "start": "10:20",
+                    "end": "10:30"
+                },
+                {
+                    "text": "A Block",
+                    "colour": "default",
+                    "start": "10:30",
+                    "end": "11:40"
+                },
+                {
+                    "text": "Lunch",
+                    "colour": "239, 52, 24",
+                    "start": "11:40",
+                    "end": "12:20"
+                },
+                {
+                    "text": "B Block",
+                    "colour": "default",
+                    "start": "12:20",
+                    "end": "13:45"
+                },
+                {
+                    "text": "Break",
+                    "colour": "default",
+                    "start": "13:45",
+                    "end": "13:55"
+                },
+                {
+                    "text": "B Block",
+                    "colour": "default",
+                    "start": "13:55",
+                    "end": "15:05"
+                },
+                {
+                    "text": "End of the day",
+                    "colour": "239, 52, 24",
+                    "start": "15:05",
+                    "end": "08:55"
+                }
+            ]
         }
     ]
 }
