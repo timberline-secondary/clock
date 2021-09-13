@@ -1,7 +1,7 @@
 #!/bin/sh
 # launcher2.sh
 
-screen -dm bash -c 'cd /home/pi/clock && git pull && npm i && npm run dev'
+screen -dm bash -c 'cd /home/pi/clock && git pull && npm i && npm run dev > log.txt'
 launched=false
 
 while [ "$launched" = false ]; do
