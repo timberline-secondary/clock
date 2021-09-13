@@ -115,7 +115,7 @@ export default function Home(props) {
 
 	const [time, setTime] = useState(new Date().toLocaleTimeString(["fr-FR"]));
 	const [properTime, setProperTime] = useState(
-		new Date().toLocaleTimeString(["en-CA"], {hour: '2-digit', minute:'2-digit'})
+		new Date().toLocaleTimeString(["en-US"], {hour: '2-digit', minute:'2-digit'})
 	);
 	const [date, setDate] = useState("loading...");
 
@@ -179,7 +179,7 @@ export default function Home(props) {
 
 	setInterval(() => {
 		setTime(new Date().toLocaleTimeString(["fr-FR"]));
-		setProperTime(new Date().toLocaleTimeString(["en-CA"], {hour: '2-digit', minute: '2-digit'}));
+		setProperTime(new Date().toLocaleTimeString(["en-US"], {hour: '2-digit', minute: '2-digit'}));
 		setDate(
 			`${days[new Date().getDay()]}, ${
 				months[new Date().getMonth()]
