@@ -115,7 +115,7 @@ export default function Home(props) {
 
 	const [time, setTime] = useState(new Date().toLocaleTimeString(["fr-FR"]));
 	const [properTime, setProperTime] = useState(
-		new Date().toLocaleTimeString(["en-US"])
+		new Date().toLocaleTimeString(["en-CA"], {hour: '2-digit', minute:'2-digit'})
 	);
 	const [date, setDate] = useState("loading...");
 
@@ -179,7 +179,7 @@ export default function Home(props) {
 
 	setInterval(() => {
 		setTime(new Date().toLocaleTimeString(["fr-FR"]));
-		setProperTime(new Date().toLocaleTimeString(["en-US"]));
+		setProperTime(new Date().toLocaleTimeString(["en-CA"], {hour: '2-digit', minute: '2-digit'}));
 		setDate(
 			`${days[new Date().getDay()]}, ${
 				months[new Date().getMonth()]
@@ -208,8 +208,8 @@ export default function Home(props) {
 				width="32"
 				height="32"
 			/>
-			<div className="select-none absolute bottom-0 left-0 text-white font-medium text-xl m-7">
-				<span className="text-shadow">{properTime}</span>
+			<div className="select-none absolute top-0 left-0 text-white font-medium text-xl m-7">
+				<span className="text-shadow">{time}</span>
 			</div>
 
 			<div className="select-none absolute bottom-0 right-0 text-white font-medium text-xl m-7">
@@ -237,7 +237,7 @@ export default function Home(props) {
 						{block}
 					</div>
 					<div className="relative select-none text-9xl tracking-wider my-2 text-white font-bold">
-						{time}
+						{properTime}
 					</div>
 					<div className="text-6xl text-white select-none">{date}</div>
 					<div className="mt-12 font-normal text-white text-5xl select-none">
