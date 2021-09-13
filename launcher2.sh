@@ -3,9 +3,16 @@
 # navigate to home directory, then to this directory, then execute python script, then back home
 
 screen -dm bash -c 'cd /home/pi/clock && git pull && npm i && npm run dev'
+launched=false
 
-sleep 5m
+while [ "$launched" = false ]; do
+  if [ -z "$(sudo lsof -nP -iTCP:3000 -sTCP:LISTEN)" ]; then
+    echo "Not in use!"
+  else
+    launched=true
 
-export DISPLAY=:0
+    export DISPLAY=:0
 
-chromium-browser --start-fullscreen --incognito --app  http://localhost:3000
+    chromium-browser --start-fullscreen --incognito --app  http://localhost:3000
+  fi
+done
