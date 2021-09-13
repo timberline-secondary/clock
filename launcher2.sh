@@ -1,8 +1,7 @@
 #!/bin/sh
 # launcher2.sh
-# navigate to home directory, then to this directory, then execute python script, then back home
 
-screen -dm bash -c 'cd /home/pi/clock && git pull && yarn && yarn dev'
+screen -dm bash -c 'cd /home/pi/clock && git pull && npm i && npm run dev'
 launched=false
 
 while [ "$launched" = false ]; do
@@ -13,6 +12,6 @@ while [ "$launched" = false ]; do
 
     export DISPLAY=:0
 
-    chromium-browser --start-fullscreen --incognito --app  http://localhost:3000
+    chromium-browser --start-fullscreen --incognito --app  http://0.0.0.0:3000
   fi
 done
