@@ -215,7 +215,7 @@ export default function Home(props) {
 			</div>
 
 			<div className="select-none absolute bottom-0 right-0 text-white font-medium text-xl m-7">
-				<span className="text-shadow">Next block at: {countdown}</span>
+				<span className="text-shadow">{next?.toLowerCase()?.includes('lunch') ? "Lunch" : `Next ${next?.toLowerCase()?.includes('break') ? "break" : "block"}`} at: {countdown}</span>
 			</div>
 
 			<div className="flex flex-col items-center justify-center absolute w-full h-full">
