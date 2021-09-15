@@ -111,6 +111,7 @@ export default function Home(props) {
 	const [colour, setColour] = useState("");
 
 	const [block, setBlock] = useState("loading...");
+	const [next, setNext] = useState("loading...")
 	const [countdown, setCountdown] = useState("loading...");
 
 	const [time, setTime] = useState(new Date().toLocaleTimeString(["fr-FR"]));
@@ -154,6 +155,7 @@ export default function Home(props) {
 			) {
 				setColour(res.schedule[Selection()].values[property].colour);
 				setBlock(res.schedule[Selection()].values[property].text);
+				setNext(res.schedule[Selection()].values[parseInt(property) + 1].text)
 				setCountdown(res.schedule[Selection()].values[property].end);
 			}
 		}
@@ -241,7 +243,7 @@ export default function Home(props) {
 					</div>
 					<div className="text-6xl text-white select-none">{date}</div>
 					<div className="mt-12 font-normal text-white text-5xl select-none">
-						Time Until Next Block:
+						Time Until {next?.toLowerCase()?.includes('lunch') ? "Lunch" : `Next ${next?.toLowerCase()?.includes('break') ? "Break" : "Block"}`}:
 					</div>
 					<div className="text-white font-normal text-6xl select-none">
 						{formatCountdown()}
