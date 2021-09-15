@@ -252,7 +252,7 @@ export default function Home(props) {
 			</div>
 
 			<div className="text-white absolute top-0 right-0 m-6">
-				<a href="https://github.com/punctuations/ac" target="_blank">
+				<a href="https://github.com/timberline-secondary/clock" target="_blank">
 					<svg
 						width="32"
 						height="32"
