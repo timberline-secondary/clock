@@ -155,7 +155,7 @@ export default function Home(props) {
 			) {
 				setColour(res.schedule[Selection()].values[property].colour);
 				setBlock(res.schedule[Selection()].values[property].text);
-				setNext(res.schedule[Selection()].values[parseInt(property) + 1]?.text)
+				setNext(res.schedule[Selection()].values[parseInt(property) + 1]?.text ?? null)
 				setCountdown(res.schedule[Selection()].values[property].end);
 			}
 		}
