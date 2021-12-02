@@ -151,9 +151,15 @@
         {
             "values": [
                 {
+                    "text": "Flex Block",
+                    "colour": "255, 255, 102",
+                    "start": "08:55",
+                    "end": "09:40"
+                },
+                {
                     "text": "A Block",
                     "colour": "default",
-                    "start": "08:55",
+                    "start": "09:40",
                     "end": "10:35"
                 },
                 {
@@ -190,6 +196,12 @@
                     "text": "B Block",
                     "colour": "default",
                     "start": "13:25",
+                    "end": "14:20"
+                },
+                {
+                    "text": "Flex Block",
+                    "colour": "255, 255, 102",
+                    "start": "14:20",
                     "end": "15:05"
                 },
                 {
