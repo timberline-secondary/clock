@@ -3,6 +3,12 @@
         {
             "values": [
                 {
+                    "text": "Start of the day",
+                    "colour": "239, 52, 24",
+                    "start": "00:00",
+                    "end": "08:55"
+                },
+                {
                     "text": "Block 1",
                     "start": "08:55",
                     "end": "09:55"
@@ -46,6 +52,12 @@
         },
         {
             "values": [
+                {
+                    "text": "Start of the day",
+                    "colour": "239, 52, 24",
+                    "start": "00:00",
+                    "end": "08:55"
+                },
                 {
                     "text": "Block: One",
                     "colour": "default", 
@@ -99,6 +111,12 @@
         {
             "values": [
                 {
+                    "text": "Start of the day",
+                    "colour": "239, 52, 24",
+                    "start": "00:00",
+                    "end": "08:55"
+                },
+                {
                     "text": "A Block",
                     "colour": "default",
                     "start": "08:55",
@@ -150,6 +168,12 @@
         },
         {
             "values": [
+                {
+                    "text": "Start of the day",
+                    "colour": "239, 52, 24",
+                    "start": "00:00",
+                    "end": "08:55"
+                },
                 {
                     "text": "Flex Block",
                     "colour": "255, 255, 102",
