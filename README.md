@@ -44,7 +44,13 @@ npm run dev
 yarn dev
 ```
 
-#### pi
+#### setup w/o install command
+
+Start by cloning this repo to `/home/pi/clock`
+
+```bash
+git clone https://github.com/timberline-secondary/clock /home/pi/clock
+```
 
 The pi uses the autostart from `/home/pi/.config/lxsession/LXDE-pi/autostart`.
 In the autostart file it reads:
