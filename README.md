@@ -95,7 +95,7 @@ Description=Probe for the clock
 
 [Service]
 type=oneshot
-User=pi
+User=root
 WorkingDirectory=/home/pi/clock
 ExecStart=/bin/bash /home/pi/clock/probe.sh
 ```
