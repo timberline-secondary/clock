@@ -10,10 +10,6 @@ export DISPLAY=:0
 
 while [ "$launched" = false ]; do
   if [ -z "$(sudo lsof -nP -iTCP:3000 -sTCP:LISTEN)" ]; then
-
-    zenity --info --text=$(tail /home/pi/clock/log.txt) \
-      --title="Clock log" --timeout=1 --ok-label Quit $ zenity --info \
-      --text=$(tail /home/pi/clock/log.txt)   --title="Clock log" 2>/dev/null
     echo "Not in use!"
   else
     launched=true
