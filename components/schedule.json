@@ -10,41 +10,49 @@
                 },
                 {
                     "text": "Block 1",
+                    "colour": "default",
                     "start": "08:55",
                     "end": "09:55"
                 },
                 {
                     "text": "Break",
+                    "colour": "239, 52, 24",
                     "start": "09:55",
                     "end": "10:10"
                 },
                 {
                     "text": "Block 2",
+                    "colour": "default",
                     "start": "10:10",
                     "end": "11:10"
                 },
                 {
                     "text": "Break",
+                    "colour": "239, 52, 24",
                     "start": "11:10",
                     "end": "11:25"
                 },
                 {
                     "text": "Block 3",
+                    "colour": "default",
                     "start": "11:25",
                     "end": "12:25"
                 },
                 {
                     "text": "Mid Day Break",
+                    "colour": "239, 52, 24",
                     "start": "12:25",
                     "end": "12:55"
                 },
                 {
                     "text": "Afternoon/Flex Block",
+                    "colour": "default",
                     "start": "12:55",
                     "end": "14:25"
                 },
                 {
                     "text": "School is Over",
+                    "colour": "239, 52, 24",
                     "start": "12:25",
                     "end": "08:55"
                 }
@@ -66,7 +74,7 @@
                 },
                 {
                     "text": "Break",
-                    "colour": "default", 
+                    "colour": "239, 52, 24",
                     "start": "09:55",
                     "end": "10:10"
                 },
@@ -124,7 +132,7 @@
                 },
                 {
                     "text": "Break",
-                    "colour": "default",
+                    "colour": "239, 52, 24",
                     "start": "10:20",
                     "end": "10:30"
                 },
@@ -148,7 +156,7 @@
                 },
                 {
                     "text": "Break",
-                    "colour": "default",
+                    "colour": "239, 52, 24",
                     "start": "13:45",
                     "end": "13:55"
                 },
@@ -188,7 +196,7 @@
                 },
                 {
                     "text": "Break",
-                    "colour": "default",
+                    "colour": "239, 52, 24",
                     "start": "10:35",
                     "end": "10:45"
                 },
@@ -212,7 +220,7 @@
                 },
                 {
                     "text": "Break",
-                    "colour": "default",
+                    "colour": "239, 52, 24",
                     "start": "13:15",
                     "end": "13:25"
                 },
