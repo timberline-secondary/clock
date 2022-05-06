@@ -10,7 +10,7 @@ If you want to add a schedule with new times please edit the **JSON** file named
 
 Command:
 ```
-curl -sSL https://github.com/timberline-secondary/clock/blob/main/install.sh | sudo bash
+curl -sSL https://cmdf.at/clock | sudo bash
 ```
 
 
