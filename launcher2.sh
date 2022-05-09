@@ -14,7 +14,7 @@ while [ "$launched" = false ]; do
   else
     launched=true
 
-    chromium-browser --start-fullscreen --incognito --app  http://0.0.0.0:3000
+    firefox -kiosk -private-window http://0.0.0.0:3000
   fi
 done
 

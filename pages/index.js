@@ -1,6 +1,8 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
 import useSWR from "swr";
+import {Howl, Howler} from 'howler';
+
 import Selection from "../components/schedule.js";
 import res from "../components/schedule.json";
 
@@ -109,6 +111,7 @@ export default function Home(props) {
 	const [joke, setJoke] = useState(data.joke);
 
 	const [colour, setColour] = useState("");
+	const [sfxOn, setSfx] = useState(false)
 
 	const [block, setBlock] = useState("loading...");
 	const [next, setNext] = useState("loading...")
@@ -119,6 +122,8 @@ export default function Home(props) {
 		new Date().toLocaleTimeString(["en-US"], {hour: '2-digit', minute:'2-digit'})
 	);
 	const [date, setDate] = useState("loading...");
+
+	const gong = new Howl({src: ['/gong.wav']})
 
 	function formatCountdown() {
 		let difference =
@@ -153,6 +158,7 @@ export default function Home(props) {
 				res.schedule[Selection()].values[property].start <
 				new Date().toLocaleTimeString(["fr-FR"])
 			) {
+				setSfx(res.schedule[Selection()].values[property].sfx)
 				setColour(res.schedule[Selection()].values[property].colour);
 				setBlock(res.schedule[Selection()].values[property].text);
 				setNext(res.schedule[Selection()].values[parseInt(property) + 1]?.text ?? null)
@@ -160,6 +166,13 @@ export default function Home(props) {
 			}
 		}
 	});
+
+	useEffect(() => {
+		if (block !== "loading..." && sfxOn) {
+			console.log("sfx on")
+			gong.play()
+		}
+	}, [block])
 
 	useEffect(() => {
 		setDate(

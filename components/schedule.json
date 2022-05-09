@@ -4,54 +4,63 @@
             "values": [
                 {
                     "text": "Start of the day",
+                    "sfx": "false",
                     "colour": "239, 52, 24",
                     "start": "00:00",
                     "end": "08:55"
                 },
                 {
                     "text": "Block 1",
+                    "sfx": "true",
                     "colour": "default",
                     "start": "08:55",
                     "end": "09:55"
                 },
                 {
                     "text": "Break",
+                    "sfx": "true",
                     "colour": "239, 52, 24",
                     "start": "09:55",
                     "end": "10:10"
                 },
                 {
                     "text": "Block 2",
+                    "sfx": "false",
                     "colour": "default",
                     "start": "10:10",
                     "end": "11:10"
                 },
                 {
                     "text": "Break",
+                    "sfx": "true",
                     "colour": "239, 52, 24",
                     "start": "11:10",
                     "end": "11:25"
                 },
                 {
                     "text": "Block 3",
+                    "sfx": "false",
                     "colour": "default",
                     "start": "11:25",
                     "end": "12:25"
                 },
                 {
                     "text": "Mid Day Break",
+                    "sfx": "true",
                     "colour": "239, 52, 24",
                     "start": "12:25",
                     "end": "12:55"
                 },
                 {
                     "text": "Afternoon/Flex Block",
+                    "sfx": "false",
                     "colour": "default",
                     "start": "12:55",
                     "end": "14:25"
                 },
                 {
                     "text": "School is Over",
+                    "sfx": "true",
                     "colour": "239, 52, 24",
                     "start": "12:25",
                     "end": "08:55"
@@ -62,54 +71,63 @@
             "values": [
                 {
                     "text": "Start of the day",
+                    "sfx": "false",
                     "colour": "239, 52, 24",
                     "start": "00:00",
                     "end": "08:55"
                 },
                 {
                     "text": "Block: One",
-                    "colour": "default", 
+                    "sfx": "true",
+                    "colour": "default",
                     "start": "08:55",
                     "end": "09:55"
                 },
                 {
                     "text": "Break",
+                    "sfx": "true",
                     "colour": "239, 52, 24",
                     "start": "09:55",
                     "end": "10:10"
                 },
                 {
                     "text": "Block: Two",
+                    "sfx": "false",
                     "colour": "default", 
                     "start": "10:10",
                     "end": "11:10"
                 },
                 {
                     "text": "Break",
+                    "sfx": "true",
                     "colour": "239, 52, 24", 
                     "start": "11:10",
                     "end": "11:25"
                 },
                 {
                     "text": "Block: Three",
+                    "sfx": "false",
                     "colour": "default", 
                     "start": "11:25",
                     "end": "12:25"
                 },
                 {
                     "text": "Lunch",
+                    "sfx": "true",
                     "colour": "239, 52, 24", 
                     "start": "12:25",
                     "end": "12:55"
                 },
                 {
                     "text": "Afternoon Block",
+                    "sfx": "false",
                     "colour": "default", 
                     "start": "12:55",
                     "end": "14:25"
                 },
                 {
                     "text": "End of the day",
+                    "sfx": "true",
                     "colour": "239, 52, 24", 
                     "start": "14:25",
                     "end": "08:55"
@@ -120,54 +138,63 @@
             "values": [
                 {
                     "text": "Start of the day",
+                    "sfx": "false",
                     "colour": "239, 52, 24",
                     "start": "00:00",
                     "end": "08:55"
                 },
                 {
                     "text": "A Block",
+                    "sfx": "true",
                     "colour": "default",
                     "start": "08:55",
                     "end": "10:20"
                 },
                 {
                     "text": "Break",
+                    "sfx": "true",
                     "colour": "239, 52, 24",
                     "start": "10:20",
                     "end": "10:30"
                 },
                 {
                     "text": "A Block",
+                    "sfx": "false",
                     "colour": "default",
                     "start": "10:30",
                     "end": "11:40"
                 },
                 {
                     "text": "Lunch",
+                    "sfx": "true",
                     "colour": "239, 52, 24",
                     "start": "11:40",
                     "end": "12:20"
                 },
                 {
                     "text": "B Block",
+                    "sfx": "false",
                     "colour": "default",
                     "start": "12:20",
                     "end": "13:45"
                 },
                 {
                     "text": "Break",
+                    "sfx": "true",
                     "colour": "239, 52, 24",
                     "start": "13:45",
                     "end": "13:55"
                 },
                 {
                     "text": "B Block",
+                    "sfx": "false",
                     "colour": "default",
                     "start": "13:55",
                     "end": "15:05"
                 },
                 {
                     "text": "End of the day",
+                    "sfx": "true",
                     "colour": "239, 52, 24",
                     "start": "15:05",
                     "end": "08:55"
@@ -178,66 +205,77 @@
             "values": [
                 {
                     "text": "Start of the day",
+                    "sfx": "false",
                     "colour": "239, 52, 24",
                     "start": "00:00",
                     "end": "08:55"
                 },
                 {
                     "text": "Flex Block",
+                    "sfx": "false",
                     "colour": "255, 255, 102",
                     "start": "08:55",
                     "end": "09:40"
                 },
                 {
                     "text": "A Block",
+                    "sfx": "true",
                     "colour": "default",
                     "start": "09:40",
                     "end": "10:35"
                 },
                 {
                     "text": "Break",
+                    "sfx": "true",
                     "colour": "239, 52, 24",
                     "start": "10:35",
                     "end": "10:45"
                 },
                 {
                     "text": "A Block",
+                    "sfx": "false",
                     "colour": "default",
                     "start": "10:45",
                     "end": "11:40"
                 },
                 {
                     "text": "Lunch",
+                    "sfx": "true",
                     "colour": "239, 52, 24",
                     "start": "11:40",
                     "end": "12:20"
                 },
                 {
                     "text": "B Block",
+                    "sfx": "false",
                     "colour": "default",
                     "start": "12:20",
                     "end": "13:15"
                 },
                 {
                     "text": "Break",
+                    "sfx": "true",
                     "colour": "239, 52, 24",
                     "start": "13:15",
                     "end": "13:25"
                 },
                 {
                     "text": "B Block",
+                    "sfx": "false",
                     "colour": "default",
                     "start": "13:25",
                     "end": "14:20"
                 },
                 {
                     "text": "Flex Block",
+                    "sfx": "true",
                     "colour": "255, 255, 102",
                     "start": "14:20",
                     "end": "15:05"
                 },
                 {
                     "text": "End of the day",
+                    "sfx": "true",
                     "colour": "239, 52, 24",
                     "start": "15:05",
                     "end": "08:55"
