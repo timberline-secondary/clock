@@ -123,7 +123,7 @@ export default function Home(props) {
 	);
 	const [date, setDate] = useState("loading...");
 
-	const gong = new Audio('/gong.wav');
+	// const gong = new Audio('/gong.wav');
 
 	function formatCountdown() {
 		let difference =
@@ -167,13 +167,13 @@ export default function Home(props) {
 		}
 	});
 
-	useEffect(() => {
-		if (block !== "loading..." && sfxOn) {
-			console.log("sfx on")
-			gong.load()
-			gong.play()
-		}
-	}, [block])
+	// useEffect(() => {
+	// 	if (block !== "loading..." && sfxOn) {
+	// 		console.log("sfx on")
+	// 		gong.load()
+	// 		gong.play()
+	// 	}
+	// }, [block])
 
 	useEffect(() => {
 		setDate(
