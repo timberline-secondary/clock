@@ -20,6 +20,6 @@ done
 
 while [ "$launched" = true ]; do
   if [ -z "$(sudo lsof -nP -iTCP:3000 -sTCP:LISTEN)" ]; then
-      echo "port error" >> /home/pi/clock/log.txt
+      echo "port error" > /home/pi/clock/log.txt
     fi
 done
