@@ -14,40 +14,44 @@ export async function getStaticProps() {
             },
         }).then((r) => r.json());
 
+    let response;
+
     try {
-        const res = await fetcher(`https://icanhazdadjoke.com/`);
+        response = await fetcher(`https://icanhazdadjoke.com/`);
     } catch (e) {
-        const res = await fetcher('http://0.0.0.0:3000/api/backup')
+        response = await fetcher('http://0.0.0.0:3000/api/backup')
+        console.log(response)
     }
+
+    console.log(response)
+    console.log("=== Server Side ===")
 
     return {
         props: {
-            res,
+            response,
         },
     };
 }
 
 export default function Home(props) {
+    console.log("==== HOME ====")
     const fetcher = (url) => {
-        try {
-            fetch(url, {
-                headers: {
-                    Accept: "application/json",
-                },
-            }).then((r) => r.json());
-        } catch {
-            fetch('http://0.0.0.0:3000/api/backup', {
-                headers: {
-                    Accept: 'application/json',
-                },
-            }).then((r) => r.json());
-        }
+        fetch(url, {
+            headers: {
+                Accept: "application/json",
+            },
+        }).then((r) => r.json());
     }
 
-    const {data} = useSWR("https://icanhazdadjoke.com/", fetcher, {
-        initialData: props.res,
+    console.log(props.response)
+    console.log("Res ^^")
+
+    const {data} = useSWR(props.response.error ? "http://0.0.0.0:3000" : "https://icanhazdadjoke.com/", fetcher, {
+        initialData: props.response,
         refreshInterval: 1000,
     });
+
+    console.log(data)
 
     useEffect(() => {
         const baseline = 128;
@@ -122,7 +126,7 @@ export default function Home(props) {
 
     const [count, setCount] = useState(0);
 
-    const [joke, setJoke] = useState(data.joke);
+    const [joke, setJoke] = useState(props.response.error ? props.response.joke : data.joke);
 
     const [colour, setColour] = useState("");
     const [sfxOn, setSfx] = useState(false)
@@ -198,13 +202,15 @@ export default function Home(props) {
     }, []);
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setCount(count + 1);
-            setJoke(data.joke);
-        }, 300000);
-        return () => {
-            clearInterval(interval);
-        };
+        if (!props.response.error) {
+            const interval = setInterval(() => {
+                setCount(count + 1);
+                setJoke(data.joke);
+            }, 300000);
+            return () => {
+                clearInterval(interval);
+            };
+        }
     }, [count]);
 
     setInterval(() => {
