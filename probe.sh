@@ -2,6 +2,6 @@
 
 event=$( tail -n 1 log.txt )
 
-if [[ "$event" != "event - compiled successfully" ]]; then
+if [[ "$event" == "port error" ]]; then
   shutdown -r
 fi
