@@ -46,12 +46,13 @@ export default function Home(props) {
     console.log(props.response)
     console.log("Res ^^")
 
-    const {data} = useSWR(props.response.error ? "http://0.0.0.0:3000" : "https://icanhazdadjoke.com/", fetcher, {
-        initialData: props.response,
-        refreshInterval: 1000,
-    });
-
-    console.log(data)
+    if (!props.response.error) {
+        const {data} = useSWR(props.response.error ? "http://0.0.0.0:3000" : "https://icanhazdadjoke.com/", fetcher, {
+            initialData: props.response,
+            refreshInterval: 1000,
+        });
+        console.log(data)
+    }
 
     useEffect(() => {
         const baseline = 128;
