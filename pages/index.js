@@ -1,10 +1,9 @@
 import Head from "next/head";
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import useSWR from "swr";
-import {Howl, Howler} from 'howler';
 
 import Selection from "../components/schedule.js";
-import res from "../components/schedule.json";
+import sched from "../components/schedule.json";
 
 export async function getStaticProps() {
     const fetcher = (url) =>
@@ -23,9 +22,6 @@ export async function getStaticProps() {
         console.log(response)
     }
 
-    console.log(response)
-    console.log("=== Server Side ===")
-
     return {
         props: {
             response,
@@ -34,25 +30,17 @@ export async function getStaticProps() {
 }
 
 export default function Home(props) {
-    console.log("==== HOME ====")
-    const fetcher = (url) => {
+    const fetcher = (url) =>
         fetch(url, {
             headers: {
                 Accept: "application/json",
             },
         }).then((r) => r.json());
-    }
 
-    console.log(props.response)
-    console.log("Res ^^")
-
-    if (!props.response.error) {
-        const {data} = useSWR(props.response.error ? "http://0.0.0.0:3000" : "https://icanhazdadjoke.com/", fetcher, {
-            initialData: props.response,
-            refreshInterval: 1000,
-        });
-        console.log(data)
-    }
+    const { data } = useSWR(props.response.id === "000" ? "http://0.0.0.0:3000/api/backup" : "https://icanhazdadjoke.com/", fetcher, {
+        initialData: props.response,
+        refreshInterval: 1000,
+    });
 
     useEffect(() => {
         const baseline = 128;
@@ -127,7 +115,7 @@ export default function Home(props) {
 
     const [count, setCount] = useState(0);
 
-    const [joke, setJoke] = useState(props.response.error ? props.response.joke : data.joke);
+    const [joke, setJoke] = useState(data.joke);
 
     const [colour, setColour] = useState("");
     const [sfxOn, setSfx] = useState(false)
@@ -138,7 +126,7 @@ export default function Home(props) {
 
     const [time, setTime] = useState(new Date().toLocaleTimeString(["fr-FR"]));
     const [properTime, setProperTime] = useState(
-        new Date().toLocaleTimeString(["en-US"], {hour: '2-digit', minute: '2-digit'})
+        new Date().toLocaleTimeString(["en-US"], {hour: '2-digit', minute:'2-digit'})
     );
     const [date, setDate] = useState("loading...");
 
@@ -169,19 +157,19 @@ export default function Home(props) {
         return `${hours}h ${minutes}m ${seconds}s`;
     }
 
-    const response = res.schedule[Selection()].values;
+    const response = sched.schedule[Selection()].values;
 
     useEffect(() => {
         for (const property in response) {
             if (
-                res.schedule[Selection()].values[property].start <
+                sched.schedule[Selection()].values[property].start <
                 new Date().toLocaleTimeString(["fr-FR"])
             ) {
-                setSfx(res.schedule[Selection()].values[property].sfx)
-                setColour(res.schedule[Selection()].values[property].colour);
-                setBlock(res.schedule[Selection()].values[property].text);
-                setNext(res.schedule[Selection()].values[parseInt(property) + 1]?.text ?? null)
-                setCountdown(res.schedule[Selection()].values[property].end);
+                setSfx(sched.schedule[Selection()].values[property].sfx)
+                setColour(sched.schedule[Selection()].values[property].colour);
+                setBlock(sched.schedule[Selection()].values[property].text);
+                setNext(sched.schedule[Selection()].values[parseInt(property) + 1]?.text ?? null)
+                setCountdown(sched.schedule[Selection()].values[property].end);
             }
         }
     });
@@ -203,15 +191,13 @@ export default function Home(props) {
     }, []);
 
     useEffect(() => {
-        if (!props.response.error) {
-            const interval = setInterval(() => {
-                setCount(count + 1);
-                setJoke(data.joke);
-            }, 300000);
-            return () => {
-                clearInterval(interval);
-            };
-        }
+        const interval = setInterval(() => {
+            setCount(count + 1);
+            setJoke(data.joke);
+        }, 300000);
+        return () => {
+            clearInterval(interval);
+        };
     }, [count]);
 
     setInterval(() => {
@@ -237,7 +223,7 @@ export default function Home(props) {
         <>
             <Head>
                 <title>Clock</title>
-                <link rel="icon" href="/favicon.ico"/>
+                <link rel="icon" href="/favicon.ico" />
             </Head>
             <canvas
                 id="canv"
@@ -250,8 +236,7 @@ export default function Home(props) {
             </div>
 
             <div className="select-none absolute bottom-0 right-0 text-white font-medium text-xl m-7">
-                <span
-                    className="text-shadow">{next?.toLowerCase()?.includes('lunch') ? "Lunch" : `Next ${next?.toLowerCase()?.includes('break') ? "break" : "block"}`} at: {countdown}</span>
+                <span className="text-shadow">{next?.toLowerCase()?.includes('lunch') ? "Lunch" : `Next ${next?.toLowerCase()?.includes('break') ? "break" : "block"}`} at: {countdown}</span>
             </div>
 
             <div className="flex flex-col items-center justify-center absolute w-full h-full">
@@ -279,8 +264,7 @@ export default function Home(props) {
                     </div>
                     <div className="text-6xl text-white select-none">{date}</div>
                     <div className="mt-12 font-normal text-white text-5xl select-none">
-                        Time
-                        Until {next?.toLowerCase()?.includes('lunch') ? "Lunch" : `Next ${next?.toLowerCase()?.includes('break') ? "Break" : "Block"}`}:
+                        Time Until {next?.toLowerCase()?.includes('lunch') ? "Lunch" : `Next ${next?.toLowerCase()?.includes('break') ? "Break" : "Block"}`}:
                     </div>
                     <div className="text-white font-normal text-6xl select-none">
                         {formatCountdown()}
