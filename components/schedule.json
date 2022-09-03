@@ -10,59 +10,66 @@
                     "end": "08:55"
                 },
                 {
-                    "text": "Block 1",
+                    "text": "A Block",
                     "sfx": "true",
                     "colour": "default",
                     "start": "08:55",
-                    "end": "09:55"
+                    "end": "10:15"
                 },
                 {
-                    "text": "Break",
+                    "text": "Go to B Block Class",
                     "sfx": "true",
                     "colour": "239, 52, 24",
-                    "start": "09:55",
-                    "end": "10:10"
+                    "start": "10:15",
+                    "end": "10:25"
                 },
                 {
-                    "text": "Block 2",
+                    "text": "B Block",
                     "sfx": "false",
                     "colour": "default",
-                    "start": "10:10",
-                    "end": "11:10"
+                    "start": "10:25",
+                    "end": "11:40"
                 },
                 {
-                    "text": "Break",
+                    "text": "Lunch",
                     "sfx": "true",
                     "colour": "239, 52, 24",
-                    "start": "11:10",
-                    "end": "11:25"
+                    "start": "11:40",
+                    "end": "12:10"
                 },
                 {
-                    "text": "Block 3",
-                    "sfx": "false",
-                    "colour": "default",
-                    "start": "11:25",
-                    "end": "12:25"
-                },
-                {
-                    "text": "Mid Day Break",
+                    "text": "Go to C Block Class",
                     "sfx": "true",
                     "colour": "239, 52, 24",
-                    "start": "12:25",
-                    "end": "12:55"
-                },
+                    "start": "12:10",
+                    "end": "12:20"
+                }
                 {
-                    "text": "Afternoon/Flex Block",
+                    "text": "C Block",
                     "sfx": "false",
                     "colour": "default",
-                    "start": "12:55",
-                    "end": "14:25"
+                    "start": "12:20",
+                    "end": "13:40"
+                },
+                {
+                    "text": "Go to D Block Class",
+                    "sfx": "true",
+                    "colour": "239, 52, 24",
+                    "start": "13:40",
+                    "end": "13:50"
+                },
+                {
+                    "text": "D Block",
+                    "sfx": "false",
+                    "colour": "default",
+                    "start": "13:50,
+                    "end": "15:05"
                 },
                 {
                     "text": "School is Over",
                     "sfx": "true",
                     "colour": "239, 52, 24",
-                    "start": "12:25",
+                    "start": "15:05",
                     "end": "08:55"
                 }
             ]
