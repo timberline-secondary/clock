@@ -72,7 +72,8 @@
                     "start": "15:05",
                     "end": "08:55"
                 }
-            ]
+            ],
+            "description": "4-Block Semester Schedule."
         },
         {
             "values": [
@@ -160,7 +161,8 @@
                     "start": "15:05",
                     "end": "08:55"
                 }
-            ]
+            ],
+            "description": "2022/2023 Flex schedule with 4-Block system."
         }
     ]
 }
