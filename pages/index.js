@@ -68,6 +68,10 @@ export async function getStaticProps() {
 
   console.log(selection);
 
+  if (new Date().getDate() !== 3) {
+    selection = "0";
+  }
+
   return {
     props: {
       response,
