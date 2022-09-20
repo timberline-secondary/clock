@@ -183,7 +183,7 @@ export default function Home(props) {
 
   const [time, setTime] = useState(new Date().toLocaleTimeString(["fr-FR"]));
   const [properTime, setProperTime] = useState(
-    new Date().toLocaleTimeString(["en-CA"], {
+    new Date().toLocaleTimeString(["en-US"], {
       hour: "numeric",
       minute: "2-digit",
     })
@@ -266,7 +266,7 @@ export default function Home(props) {
   setInterval(() => {
     setTime(new Date().toLocaleTimeString(["fr-FR"]));
     setProperTime(
-      new Date().toLocaleTimeString(["en-CA"], {
+      new Date().toLocaleTimeString(["en-US"], {
         hour: "numeric",
         minute: "2-digit",
       })
