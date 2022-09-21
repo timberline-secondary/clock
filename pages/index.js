@@ -7,8 +7,6 @@ import sched from "../components/schedule.json";
 export async function getStaticProps() {
   async function loadSelection() {
     let value;
-    const PATH_FLEX = process.cwd() + "/flex-toggle";
-    const PATH_INDEX = process.cwd() + "/flex-index";
 
     await fetch("http://0.0.0.0:3000/flex-toggle", {
       headers: { cache: "no-cache" },
@@ -68,7 +66,7 @@ export async function getStaticProps() {
 
   console.log(selection);
 
-  if (new Date().getDate() !== 3) {
+  if (new Date().getDay() !== 3) {
     selection = "0";
   }
 
@@ -81,6 +79,8 @@ export async function getStaticProps() {
 }
 
 export default function Home(props) {
+  console.log(props.selection);
+
   const fetcher = (url) =>
     fetch(url, {
       headers: {
