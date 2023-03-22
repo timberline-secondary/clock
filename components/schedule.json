@@ -35,13 +35,13 @@
                     "sfx": "true",
                     "colour": "239, 52, 24",
                     "start": "11:40",
-                    "end": "12:10"
+                    "end": "12:15"
                 },
                 {
                     "text": "Go to C Block Class",
                     "sfx": "true",
                     "colour": "239, 52, 24",
-                    "start": "12:10",
+                    "start": "12:15",
                     "end": "12:20"
                 },
                 {
@@ -99,7 +99,7 @@
                     "end": "10:35"
                 },
                 {
-                    "text": "Go to B Block Class",
+                    "text": "Break",
                     "sfx": "true",
                     "colour": "239, 52, 24",
                     "start": "10:35",
@@ -117,13 +117,13 @@
                     "sfx": "true",
                     "colour": "239, 52, 24",
                     "start": "11:40",
-                    "end": "12:10"
+                    "end": "12:15"
                 },
                 {
                     "text": "Go to C or D Block",
                     "sfx": "true",
                     "colour": "239, 52, 24",
-                    "start": "12:10",
+                    "start": "12:15",
                     "end": "12:20"
                 },
                 {
@@ -134,17 +134,17 @@
                     "end": "13:25"
                 },
                 {
-                    "text": "Go to D or C Block",
+                    "text": "Break",
                     "sfx": "true",
                     "colour": "239, 52, 24",
-                    "start": "13:25",
-                    "end": "13:35"
+                    "start": "13:15",
+                    "end": "13:25"
                 },
                 {
                     "text": "D or C Block",
                     "sfx": "false",
                     "colour": "default",
-                    "start": "13:35",
+                    "start": "13:25",
                     "end": "14:20"
                 },
                 {
