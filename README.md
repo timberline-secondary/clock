@@ -9,10 +9,10 @@ If you want to add a schedule with new times please edit the **JSON** file named
 ⚠️ Prerequisites include: npm & git
 
 Command:
+
 ```
 curl -sSL https://cmdf.at/clock | sudo bash
 ```
-
 
 #### Run a development server.
 
@@ -59,6 +59,7 @@ In the autostart file it reads:
 @lxpanel --profile LXDE-pi
 @pcmanfm --desktop --profile LXDE-pi
 #@xscreensaver -no-splash
+@bash /home/pi/updater.sh
 @bash /home/pi/clock/launcher2.sh
 @xset s off
 @xset -dpms
@@ -67,14 +68,24 @@ In the autostart file it reads:
 @unclutter -idle 0
 ```
 
-The launcher is located here in launcher2.sh and launches the clock onto the projector.
+Updater.sh is a simple updating script that runs any updating related commands (i.e. git pull)
+The contents are as follows:
 
+```
+#!/bin/bash
+
+cd /home/pi/clock
+git pull
+```
+
+The launcher is located here in launcher2.sh and launches the clock onto the projector.
 
 ### systemd services
 
 The pi requires two systemd files for probing to ensure the program is running as expected.
 
 This (below) is the timer which manages the intervals between probes, located in `/etc/systemd/system/probe.timer`
+
 ```
 [Unit]
 Description=Timer for the clock probe

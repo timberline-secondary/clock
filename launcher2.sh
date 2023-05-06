@@ -1,7 +1,7 @@
 #!/bin/sh
 # launcher2.sh
 
-screen -dm bash -c 'cd /home/pi/clock && git pull && npm i | tee /home/pi/clock/log.txt && npm run dev  | tee /home/pi/clock/log.txt'
+screen -dm bash -c 'cd /home/pi/clock && npm i | tee /home/pi/clock/log.txt && npm run build  | tee /home/pi/clock/log.txt && npm run start | tee /home/pi/clock/log.txt'
 
 
 launched=false
