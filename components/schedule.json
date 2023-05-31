@@ -1,7 +1,98 @@
 {
     "schedule": [
+        
         {
             "values": [
+                {
+                    "text": "Start of the day",
+                    "sfx": "false",
+                    "colour": "239, 52, 24",
+                    "start": "00:00",
+                    "end": "08:55"
+                },
+                {
+                    "text": "Flex Time",
+                    "sfx": "true",
+                    "colour": "255, 255, 102",
+                    "start": "08:55",
+                    "end": "09:40"
+                },
+                {
+                    "text": "A or B Block",
+                    "sfx": "true",
+                    "colour": "default",
+                    "start": "09:40",
+                    "end": "10:35"
+                },
+                {
+                    "text": "Break",
+                    "sfx": "true",
+                    "colour": "239, 52, 24",
+                    "start": "10:35",
+                    "end": "10:45"
+                },
+                {
+                    "text": "B or A Block",
+                    "sfx": "false",
+                    "colour": "default",
+                    "start": "10:45",
+                    "end": "11:40"
+                },
+                {
+                    "text": "Lunch",
+                    "sfx": "true",
+                    "colour": "239, 52, 24",
+                    "start": "11:40",
+                    "end": "12:15"
+                },
+                {
+                    "text": "Go to C or D Block",
+                    "sfx": "true",
+                    "colour": "239, 52, 24",
+                    "start": "12:15",
+                    "end": "12:20"
+                },
+                {
+                    "text": "C or D Block",
+                    "sfx": "false",
+                    "colour": "default",
+                    "start": "12:20",
+                    "end": "13:25"
+                },
+                {
+                    "text": "Break",
+                    "sfx": "true",
+                    "colour": "239, 52, 24",
+                    "start": "13:15",
+                    "end": "13:25"
+                },
+                {
+                    "text": "D or C Block",
+                    "sfx": "false",
+                    "colour": "default",
+                    "start": "13:25",
+                    "end": "14:20"
+                },
+                {
+                    "text": "Flex Time",
+                    "sfx": "false",
+                    "colour": "255, 255, 102",
+                    "start": "14:20",
+                    "end": "15:05"
+                },
+                {
+                    "text": "School is Over",
+                    "sfx": "true",
+                    "colour": "239, 52, 24",
+                    "start": "15:05",
+                    "end": "08:55"
+                }
+            ],
+            "description": "2022/2023 Flex schedule with 4-Block system."
+        },
+        {
+            "values": [
+                
                 {
                     "text": "Start of the day",
                     "sfx": "false",
